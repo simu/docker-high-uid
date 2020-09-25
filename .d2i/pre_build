@@ -1,0 +1,8 @@
+#!/bin/bash
+
+readonly dockerfile=${1}
+echo ${dockerfile}
+
+echo "Patching user id to ${USER_ID}"
+
+sed -ie "s/_UID_/${USER_ID}/g" ${dockerfile}
