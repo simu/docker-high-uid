@@ -1,9 +1,9 @@
 #!/bin/bash
 
 readonly dockerfile=${1}
+readonly imagetag=${2}
 
-readonly USER_ID=$(id -u)
-
+echo "Image tag ${imagetag}"
 echo "Patching user id to ${USER_ID} in ${dockerfile}"
 
 sed -i "s/_UID_/${USER_ID}/g" "${dockerfile}"
