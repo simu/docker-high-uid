@@ -1,7 +1,9 @@
 FROM docker.io/library/busybox:latest
 
-RUN mkdir /test && chown 1000310000:0 /test && chmod -R g+rwX /test
+ARG USER_ID
 
-USER 1000310000
+RUN mkdir /test && chown $USER_ID:0 /test && chmod -R g+rwX /test
+
+USER $USER_ID
 
 ENTRYPOINT ["sleep", "3600"]
