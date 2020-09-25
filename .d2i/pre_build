@@ -3,7 +3,9 @@
 readonly dockerfile=${1}
 readonly imagetag=${2}
 
-echo "Image tag ${imagetag}"
-echo "Patching user id to ${USER_ID} in ${dockerfile}"
+env
 
-sed -i "s/_UID_/${USER_ID}/g" "${dockerfile}"
+echo "Image tag ${imagetag}"
+echo "Patching user id to ${CUSTOM_USER_ID} in ${dockerfile}"
+
+sed -i "s/_UID_/${CUSTOM_USER_ID}/g" "${dockerfile}"
